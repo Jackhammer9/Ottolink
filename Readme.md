@@ -18,6 +18,13 @@ The controller runs on an **ATmega328P-based embedded system** and executes Cart
 
 ---
 
+### Watch It In Action
+
+You can watch the arm in action on my [Portfolio Website](https://arnav-bajaj.com/projects/15/).
+
+---
+
+
 ## Features
 
 - 4-DoF anthropomorphic robotic arm
