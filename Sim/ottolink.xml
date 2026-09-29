@@ -1,0 +1,331 @@
+<mujoco model="ottolink_real">
+
+  <compiler
+      angle="radian"
+      meshdir="meshes"/>
+
+  <option
+      gravity="0 0 -9.81"
+      timestep="0.002"
+      integrator="implicitfast"/>
+
+  <visual>
+
+    <headlight
+        ambient="0.5 0.5 0.5"
+        diffuse="0.8 0.8 0.8"
+        specular="0.2 0.2 0.2"/>
+
+    <global
+        offwidth="1280"
+        offheight="720"
+        azimuth="135"
+        elevation="-20"/>
+
+    <quality
+        shadowsize="4096"/>
+
+  </visual>
+
+  <asset>
+
+    <texture
+        name="sky"
+        type="skybox"
+        builtin="gradient"
+        rgb1="0.25 0.45 0.70"
+        rgb2="0.02 0.02 0.04"
+        width="512"
+        height="512"/>
+
+    <texture
+        name="floor_tex"
+        type="2d"
+        builtin="checker"
+        rgb1="0.18 0.18 0.18"
+        rgb2="0.12 0.12 0.12"
+        width="512"
+        height="512"
+        mark="edge"
+        markrgb="0.25 0.25 0.25"/>
+
+    <material
+        name="floor_mat"
+        texture="floor_tex"
+        texrepeat="8 8"
+        reflectance="0.15"
+        shininess="0.3"/>
+
+
+    <!-- ORIGINAL CAD MESHES -->
+
+    <mesh name="elbow_horn" file="elbow_horn.stl"/>
+    <mesh name="elbowmotor" file="elbowmotor.stl"/>
+    <mesh name="lowarm_1" file="lowarm_1.stl"/>
+
+    <mesh name="pitchhorn" file="pitchhorn.stl"/>
+    <mesh name="pitchmotor" file="pitchmotor.stl"/>
+    <mesh name="pitchmotorholder_1" file="pitchmotorholder_1.stl"/>
+
+    <mesh name="rollhorn" file="rollhorn.stl"/>
+    <mesh name="rollmotor" file="rollmotor.stl"/>
+    <mesh name="rollservomount_1" file="rollservomount_1.stl"/>
+
+    <mesh name="upperarm_1" file="upperarm_1.stl"/>
+
+    <mesh name="yawhorn" file="yawhorn.stl"/>
+    <mesh name="yawmotor" file="yawmotor.stl"/>
+    <mesh name="yawmotorholder" file="yawmotorholder.stl"/>
+
+  </asset>
+
+
+  <worldbody>
+
+    <!-- FLOOR -->
+
+    <geom
+        name="floor"
+        type="plane"
+        size="10 10 0.1"
+        pos="0 0 0"
+        material="floor_mat"
+        contype="1"
+        conaffinity="1"/>
+
+
+    <!-- LIGHTING -->
+
+    <light
+        name="key_light"
+        pos="2 2 4"
+        dir="-0.3 -0.3 -1"
+        diffuse="0.8 0.8 0.8"
+        specular="0.4 0.4 0.4"
+        directional="true"/>
+
+    <light
+        name="fill_light"
+        pos="-3 1 2"
+        dir="0.5 -0.2 -0.8"
+        diffuse="0.4 0.4 0.4"
+        specular="0.2 0.2 0.2"
+        directional="true"/>
+
+    <light
+        name="rim_light"
+        pos="0 -3 3"
+        dir="0 0.5 -0.8"
+        diffuse="0.35 0.35 0.35"
+        specular="0.3 0.3 0.3"
+        directional="true"/>
+
+
+    <!-- ROBOT -->
+
+    <body name="base" pos="0 0 1">
+
+      <!-- FIXED PITCH HOLDER -->
+
+      <geom
+          name="pitch_holder"
+          type="mesh"
+          mesh="pitchmotorholder_1"
+          contype="0"
+          conaffinity="0"/>
+
+      <geom
+          name="pitch_motor"
+          type="mesh"
+          mesh="pitchmotor"
+          contype="0"
+          conaffinity="0"/>
+
+
+      <!-- PITCH -->
+
+      <body
+          name="pitch"
+          pos="0 0 0">
+
+        <joint
+            name="pitch"
+            type="hinge"
+            axis="0 1 0"
+            damping="1"/>
+
+        <geom
+            name="pitch_horn"
+            type="mesh"
+            mesh="pitchhorn"
+            contype="0"
+            conaffinity="0"/>
+
+        <geom
+            name="roll_mount"
+            type="mesh"
+            mesh="rollservomount_1"
+            contype="0"
+            conaffinity="0"/>
+
+        <geom
+            name="roll_motor"
+            type="mesh"
+            mesh="rollmotor"
+            contype="0"
+            conaffinity="0"/>
+
+
+        <!-- ROLL -->
+
+        <body
+            name="roll"
+            pos="-0.0238 0.0633 -0.0003">
+
+          <joint
+              name="roll"
+              type="hinge"
+              axis="1 0 0.016"
+              damping="1"/>
+
+          <geom
+              name="roll_horn"
+              type="mesh"
+              mesh="rollhorn"
+              contype="0"
+              conaffinity="0"/>
+
+          <geom
+              name="yaw_holder"
+              type="mesh"
+              mesh="yawmotorholder"
+              contype="0"
+              conaffinity="0"/>
+
+          <geom
+              name="yaw_motor"
+              type="mesh"
+              mesh="yawmotor"
+              contype="0"
+              conaffinity="0"/>
+
+
+          <!-- YAW -->
+
+          <body
+              name="yaw"
+              pos="0.0235 0.0004 -0.1010">
+
+            <joint
+                name="yaw"
+                type="hinge"
+                axis="0 0.002 1"
+                damping="1"/>
+
+            <geom
+                name="yaw_horn"
+                type="mesh"
+                mesh="yawhorn"
+                contype="0"
+                conaffinity="0"/>
+
+            <geom
+                name="upper_arm"
+                type="mesh"
+                mesh="upperarm_1"
+                contype="0"
+                conaffinity="0"/>
+
+            <geom
+                name="elbow_motor"
+                type="mesh"
+                mesh="elbowmotor"
+                contype="0"
+                conaffinity="0"/>
+
+
+            <!-- ELBOW -->
+
+            <body
+                name="elbow"
+                pos="-0.0054 0.0302 -0.1940">
+
+              <joint
+                  name="elbow"
+                  type="hinge"
+                  axis="0.136 0.991 0.002"
+                  damping="1"/>
+
+              <geom
+                  name="elbow_horn"
+                  type="mesh"
+                  mesh="elbow_horn"
+                  contype="0"
+                  conaffinity="0"/>
+
+              <geom
+                  name="lower_arm"
+                  type="mesh"
+                  mesh="lowarm_1"
+                  contype="0"
+                  conaffinity="0"/>
+
+              <site
+                  name="end_effector"
+                  pos="0 0 -0.18"
+                  size="0.008"/>
+
+            </body>
+
+          </body>
+
+        </body>
+
+      </body>
+
+    </body>
+
+  </worldbody>
+
+
+  <!-- ACTUATORS -->
+
+  <actuator>
+
+    <position
+        name="Pitch"
+        joint="pitch"
+        kp="500"
+        kv="10"
+        ctrllimited="true"
+        ctrlrange="0 3.14159265359"/>
+
+    <!-- Displayed as Yaw, but controls the ROLL joint -->
+    <position
+        name="Yaw"
+        joint="roll"
+        kp="500"
+        kv="10"
+        ctrllimited="true"
+        ctrlrange="0 3.14159265359"/>
+
+    <!-- Displayed as Roll, but controls the YAW joint -->
+    <position
+        name="Roll"
+        joint="yaw"
+        kp="500"
+        kv="10"
+        ctrllimited="true"
+        ctrlrange="0 3.14159265359"/>
+
+    <position
+        name="Elbow"
+        joint="elbow"
+        kp="500"
+        kv="10"
+        ctrllimited="true"
+        ctrlrange="0 3.14159265359"/>
+
+  </actuator>
+
+</mujoco>

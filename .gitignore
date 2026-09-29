@@ -1,0 +1,97 @@
+# ==========================================
+# PlatformIO
+# ==========================================
+
+# PlatformIO build directory
+.pio/
+
+# PlatformIO IDE configuration
+.vscode/
+
+# Test/build artifacts
+**/.pio/
+**/.vscode/
+
+
+# ==========================================
+# KiCad
+# ==========================================
+
+# KiCad backup/autosave files
+**/*-backups/
+**/*.bak
+**/*.lck
+**/~*
+
+# KiCad temporary files
+**/*.kicad_prl
+**/*.kicad_pro-bak
+**/*.kicad_sch-bak
+**/*.kicad_pcb-bak
+
+# KiCad history
+**/.history/
+
+# Local footprint/library tables
+**/fp-lib-table
+
+
+# ==========================================
+# Python
+# ==========================================
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution/build files
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# ==========================================
+# OS / Editor
+# ==========================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# VS Code
+.history/
+
+
+# ==========================================
+# Temporary / generated files
+# ==========================================
+
+*.tmp
+*.temp
+*.log
+
+
+# ==========================================
+# Large generated files
+# ==========================================
+
+*.mp4
+*.mov
+*.avi

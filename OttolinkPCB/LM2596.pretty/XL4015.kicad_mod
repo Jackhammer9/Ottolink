@@ -1,0 +1,143 @@
+(footprint "XL4015"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 27 8.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "82c2c44e-0cf9-4b5d-b544-6a48fed1e1af")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "XL4015"
+		(at 27 10 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "dd6cf79e-bf9b-4b9f-89ae-b2d7c7c713a9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1028f91d-ee2f-4da5-a74f-44781f3c19a7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3e834734-0e41-405e-9bdf-4d6d19785663")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start 0 0)
+		(end 54 24)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "7bee292c-e5e0-433d-9eee-d7bbdf254e6a")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 27 11.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "8ed4e842-80dd-4786-b584-44dbcad60f3a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "" np_thru_hole circle
+		(at 7.2 2.6 180)
+		(size 3.5 3.5)
+		(drill 3.2)
+		(layers "*.Cu" "*.Mask")
+		(uuid "c5428aea-9a0d-4c52-874b-2df7eca3c7db")
+	)
+	(pad "" np_thru_hole circle
+		(at 47.4 21.2 180)
+		(size 3.5 3.5)
+		(drill 3.2)
+		(layers "*.Cu" "*.Mask")
+		(uuid "4e6d7e93-868f-4d65-843a-bfb9c040d0aa")
+	)
+	(pad "1" thru_hole roundrect
+		(at 1.8 1.6 270)
+		(size 3 3.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Paste" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.01)
+		(uuid "a654a668-2209-48eb-8e88-f3a9a86358e3")
+	)
+	(pad "2" thru_hole roundrect
+		(at 1.8 22.4 270)
+		(size 3 3.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Paste" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.01)
+		(uuid "4d34b36b-e0d6-4efe-a1ea-4dca123c7efd")
+	)
+	(pad "3" thru_hole roundrect
+		(at 52.2 22.4 270)
+		(size 3 3.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Paste" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.01)
+		(uuid "6cdd5858-c95e-4e06-bca9-9e7ebdeb93b0")
+	)
+	(pad "4" thru_hole roundrect
+		(at 52.2 1.6 270)
+		(size 3 3.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Paste" "*.Mask")
+		(remove_unused_layers no)
+		(roundrect_rratio 0.01)
+		(uuid "1ef53386-948a-4092-acf5-dfd4b06a9885")
+	)
+	(embedded_fonts no)
+	(model "${KICAD10_3DMODEL_DIR}/CustomFootprint/XL4015_MODELO_PISTAS.step"
+		(offset
+			(xyz 28 -11 -54.5)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
+)
